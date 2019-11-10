@@ -31,7 +31,26 @@ namespace IoTCentral_REST_ApiClient
             {
                 configuration.RootPath = "ClientApp/dist";
             });
-            services.AddSwaggerDocument();
+            services.AddSwaggerDocument(config =>
+            {
+                config.PostProcess = document =>
+                {
+                    document.Info.Version = "v1";
+                    document.Info.Title = "IoT Central REST Client";
+                    document.Info.Description = "A sample implementation how to use the IoT Central REST API";
+                    document.Info.TermsOfService = "None";
+                    document.Info.Contact = new NSwag.OpenApiContact
+                    {
+                        Name = "Tim Steiner",
+                        Email = "tim.steiner1@googlemail.com"
+                    };
+                    document.Info.License = new NSwag.OpenApiLicense
+                    {
+                        Name = "Use under MIT",
+                        Url = "https://github.com/tim1993/iot-central-restapi-client/blob/master/LICENSE"
+                    };
+                };
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
