@@ -5,27 +5,27 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { NavMenuComponent } from './nav-menu/nav-menu.component';
-import { HomeComponent } from './home/home.component';
-import { CounterComponent } from './counter/counter.component';
-import { FetchDataComponent } from './fetch-data/fetch-data.component';
+import { NavMenuComponent } from './modules/app/components/nav-menu/nav-menu.component';
+import { HomeComponent } from './modules/app/components/home/home.component';
+import { DeviceTemplatesComponent } from './modules/app/components/device-templates/device-templates.component';
+import { RolesComponent } from './modules/app/components/roles/roles.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavMenuComponent,
     HomeComponent,
-    CounterComponent,
-    FetchDataComponent
+    DeviceTemplatesComponent,
+    RolesComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'counter', component: CounterComponent },
-      { path: 'fetch-data', component: FetchDataComponent },
+        { path: '', component: HomeComponent, pathMatch: 'full' },
+        { path: 'deviceTemplates', component: DeviceTemplatesComponent },
+        { path: 'roles', component: RolesComponent },
     ])
   ],
   providers: [],
